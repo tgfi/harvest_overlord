@@ -1,28 +1,11 @@
-== README
+# Harvest Overlord
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Harvest](http://www.harvestapp.com) time tracking does not have a view of time entries grouped by user on a single page. Using the API, this project gives you a grouped view of time on a specific day for a list of users.
 
-Things you may want to cover:
+- It defaults to the previous business day.
+- You can change to any day.
 
-* Ruby version
+## Requirements
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+1. You need a Harvest account.
+2. Add your credentials to config/harvest.yml
