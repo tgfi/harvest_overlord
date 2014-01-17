@@ -9,3 +9,4 @@
 
 1. You need a Harvest account.
 2. Add your credentials to config/harvest.yml
+3. Rails 4, Ruby 2.0
