@@ -1,0 +1,5 @@
+harvest:
+  subdomain: mycompany
+  login_email: user@mycompany.com
+  password: mypassword
+user_emails: "user1@mycompany.com, user2@mycompany.com, user3@mycompany.com"

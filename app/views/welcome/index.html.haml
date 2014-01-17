@@ -1,0 +1,25 @@
+.right
+  %form
+    = text_field_tag 'date', @day.strftime("%m/%d/%Y")
+    = submit_tag "GO"
+%h1 Harvest: #{@day.strftime("%A, %B %d")}
+%hr
+
+- @users.each do |email,user|
+  .right{:style => "margin-top: 4px"}= link_to 'edit', "https://tgfi.harvestapp.com/time/day/#{@day.year}/#{@day.month.to_s.rjust(2, '0')}/#{@day.day.to_s.rjust(2, '0')}/#{user.info.id}", :target => "_blank"
+  %h1
+    = image_tag gravatar_url(email), :size => "30x30"
+    #{user.info.first_name} #{user.info.last_name}
+
+  %p= user.info.type
+  %ul
+    - user.times.each do |t|
+      %li
+        .right= number_with_precision(t.hours, precision: 2)
+        %h4
+          = t.project
+          .company (#{t.client})
+
+        %p #{t.task} - #{t.notes}
+
+  %hr
