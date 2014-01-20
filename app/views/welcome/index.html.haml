@@ -6,6 +6,7 @@
 %hr
 
 - @users.each do |email,user|
+  - total = 0.00
   .right{:style => "margin-top: 4px"}= link_to 'edit', "https://tgfi.harvestapp.com/time/day/#{@day.year}/#{@day.month.to_s.rjust(2, '0')}/#{@day.day.to_s.rjust(2, '0')}/#{user.info.id}", :target => "_blank"
   %h1
     = image_tag gravatar_url(email), :size => "30x30"
@@ -21,5 +22,10 @@
           .company (#{t.client})
 
         %p #{t.task} - #{t.notes}
+        - total += t.hours
 
+  %p.right
+    %strong Total:
+    = number_with_precision(total, precision: 2)
+  %br{ :clear => 'all' }
   %hr
