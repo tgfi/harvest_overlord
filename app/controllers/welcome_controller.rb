@@ -34,7 +34,7 @@ class WelcomeController < ApplicationController
     def previous_day
       d = 1.day.ago
       # 0..6, Sun..Sat
-      while d.wday < 2 || d.wday > 5
+      while d.wday < 1 || d.wday > 5
         d = d - 1.day
       end
       d
