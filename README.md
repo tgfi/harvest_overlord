@@ -8,5 +8,5 @@
 ## Requirements
 
 1. You need a Harvest account.
-2. Add your credentials to config/harvest.yml
+2. Add your credentials to config/harvest.yml. The user_emails hash is optional, but slows performance at a rate of n + 1.
 3. Rails 4, Ruby 2.0
