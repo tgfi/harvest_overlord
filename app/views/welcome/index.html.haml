@@ -1,6 +1,6 @@
 .right
   %form
-    = text_field_tag 'date', @day.strftime("%m/%d/%Y")
+    = text_field_tag 'date', @day.strftime("%m/%d/%Y"), class: 'datepicker'
     = submit_tag "GO"
 %h1 Harvest: #{@day.strftime("%A, %B %d")}
 %hr
@@ -29,3 +29,9 @@
     = number_with_precision(total, precision: 2)
   %br{ :clear => 'all' }
   %hr
+
+  :javascript
+    $(function() {
+        $( ".datepicker" ).datepicker();
+      });
+      </script>
