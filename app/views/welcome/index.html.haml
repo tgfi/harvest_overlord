@@ -10,7 +10,7 @@
   .right{:style => "margin-top: 4px"}= link_to 'edit', "https://tgfi.harvestapp.com/time/day/#{@day.year}/#{@day.month.to_s.rjust(2, '0')}/#{@day.day.to_s.rjust(2, '0')}/#{user.info.id}", :target => "_blank"
   %h1
     = image_tag gravatar_url(email), :size => "30x30"
-    #{user.info.first_name} #{user.info.last_name}
+    = link_to "#{user.info.first_name} #{user.info.last_name}", "/employee/#{user.info.id}"
 
   %p= user.info.type
   %ul

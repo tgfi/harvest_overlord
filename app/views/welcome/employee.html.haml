@@ -1,0 +1,48 @@
+.right
+  %form
+    = text_field_tag 'date', @day.strftime("%m/%d/%Y"), class: 'datepicker'
+    = submit_tag "GO"
+%h1
+  = link_to 'Harvest', root_path
+  \: Weekly Report
+%hr
+
+
+  .right{:style => "margin-top: 4px"}
+
+  %p.right
+    %strong Total:
+    = link_to number_with_precision(@entries.hours, precision: 2), "https://tgfi.harvestapp.com/time/week/#{@entries.start_date.year}/#{@entries.start_date.month.to_s.rjust(2, '0')}/#{@entries.start_date.day.to_s.rjust(2, '0')}/#{@entries.user.id}", :target => "_blank"
+
+  %h1
+    = image_tag gravatar_url(@entries.user.email), :size => "30x30"
+    #{@entries.user.first_name} #{@entries.user.last_name}
+
+
+  - @entries.entries.each do |entry|
+
+    %h2 #{entry[:date].strftime("%A, %B %d")}
+    %ul
+      - entry[:times].each do |t|
+        %li
+          .right= number_with_precision(t.hours, precision: 2)
+          %h4
+            = t.project
+            .company (#{t.client})
+
+          %p #{t.task} - #{t.notes}
+    %p.right
+      %strong Total:
+      = number_with_precision(entry[:times].map{ |t| t.hours }.flatten.sum, precision: 2)
+    %br{ :clear => 'all' }
+    %hr
+
+
+  %p= @entries.user.type
+
+
+
+  :javascript
+    $(function() {
+        $( ".datepicker" ).datepicker();
+      });
