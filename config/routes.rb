@@ -4,7 +4,7 @@ Harvest::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
 
-  match '/employee/:id', to: 'welcome#employee', via: [:get, :post]
+  match '/employee/:id', to: 'welcome#employee', via: [:get, :post], as: :employee
   root 'welcome#index'
 
   # Example of regular route:

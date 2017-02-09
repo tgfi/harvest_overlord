@@ -28,7 +28,7 @@ class WelcomeController < ApplicationController
 
     def set_defaults
       @day = Chronic.parse(params[:date]) || previous_day
-      @harvest = Harvest.client( Harvest::Application::CONFIG['harvest']['subdomain'],  Harvest::Application::CONFIG['harvest']['login_email'],  Harvest::Application::CONFIG['harvest']['password'])
+      @harvest = Harvest.client( subdomain: Harvest::Application::CONFIG['harvest']['subdomain'],  username: Harvest::Application::CONFIG['harvest']['login_email'],  password: Harvest::Application::CONFIG['harvest']['password'])
     end
 
     def previous_day

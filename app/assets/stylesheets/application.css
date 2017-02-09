@@ -10,11 +10,15 @@
  *
  *= require_self
  *= require_tree .
- *= require jquery.ui.datepicker
+ *= require jquery-ui/datepicker
  */
 
-html, body {
-  font-family: Helvetica;
+html, body, p {
+  font-family: Georgia;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Roboto, "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 
 .wrapper {
@@ -34,3 +38,9 @@ hr {
 }
 
 .right {float: right;}
+
+a.advance-arrow {
+  color: #000;
+  text-decoration: none;
+  font-size: 0.7em;
+}

@@ -2,7 +2,10 @@
   %form
     = text_field_tag 'date', @day.strftime("%m/%d/%Y"), class: 'datepicker'
     = submit_tag "GO"
-%h1 Harvest: #{@day.strftime("%A, %B %d")}
+%h1
+  = link_to '&#9664;'.html_safe, root_path(date: 1.business_days.before(@day).strftime("%m/%d/%Y")), class: 'advance-arrow'
+  Harvest: #{@day.strftime("%A, %B %d")}
+  = link_to '&#9658;'.html_safe, root_path(date: 1.business_days.after(@day).strftime("%m/%d/%Y")), class: 'advance-arrow'
 %hr
 
 - @users.each do |email,user|

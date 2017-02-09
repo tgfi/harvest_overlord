@@ -4,7 +4,12 @@
     = submit_tag "GO"
 %h1
   = link_to 'Harvest', root_path
+
+  = link_to '&#9664;'.html_safe, employee_path(date: @entries.start_date.advance(weeks: -1).strftime("%m/%d/%Y")), class: 'advance-arrow'
   \: Weekly Report
+  = link_to '&#9658;'.html_safe, employee_path(date: @entries.start_date.advance(weeks: 1).strftime("%m/%d/%Y")), class: 'advance-arrow'
+
+
 %hr
 
 
